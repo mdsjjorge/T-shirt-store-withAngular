@@ -10,11 +10,17 @@ export class CartService {
   constructor() { }
 
   getCart() {
-    return JSON.parse(localStorage.getItem("cart") || "" );
+    this.itens = JSON.parse(localStorage.getItem("cart") || "[]" );
+    return this.itens;
   }
 
   addToCart( product: IProductCart) {
     this.itens.push(product);
+    localStorage.setItem("cart", JSON.stringify(this.itens));
+  }
+
+  removeFromCart(productId: number){
+    this.itens = this.itens.filter(item => item.id !== productId);
     localStorage.setItem("cart", JSON.stringify(this.itens));
   }
 

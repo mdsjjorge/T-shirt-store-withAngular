@@ -1,0 +1,20 @@
+<section class="cart-content">
+    <h2 class="cart-title"> cart </h2>
+    <div *ngIf="itensCart.length > 0; else noProducts">
+        <ul>
+            <li *ngFor="let itemCart of itensCart">
+                <img [src]="itemCart.image">
+                <p>{{itemCart.description}}</p>
+                <p>{{itemCart.price | currency: "BRL"}} </p>
+                <label>
+                    quantity
+                    <input type="number" [(ngModel)]="itemCart.quantity" (change)="calculateTotal()">
+                </label>
+                <button class="remove-button" (click)="removeFromCart(itemCart.id)"> X </button>
+            </li>
+        </ul>
+        <h2 class="cart-total"> total: {{total | currency: "BRL"}} </h2>
+        <button class="buy-button" (click)="buy()">buy</button>
+    </div>
+    <ng-template #noProducts> No products have been added to cart </ng-template>
+</section>
