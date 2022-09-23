@@ -26,3 +26,6 @@ table {
     --light-gray: rgb(190, 183, 183);
     --light-gray-2: rgb(229, 219, 219);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
