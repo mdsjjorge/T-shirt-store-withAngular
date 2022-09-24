@@ -1,0 +1,198 @@
+<h2 class="contact__title">contact us</h2>
+<section class="contact__container">
+    <form 
+        class="contact-form" 
+        [formGroup]="formContact"
+        (ngSubmit)="sendForm()"
+    >
+
+        <input 
+            type="text" 
+            placeholder="name"
+            formControlName="name"
+            [class.valid]="formContact.controls['name'].valid"
+            [class.invalid]="
+                formContact.controls['name'].invalid &&
+                (formContact.controls['name'].touched || formContact.controls['name'].dirty)
+            "
+        >
+        <div
+            *ngIf="
+                formContact.controls['name'].invalid &&
+                (formContact.controls['name'].touched || formContact.controls['name'].dirty)
+            "
+        >
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['name'].hasError('minlength')
+                "
+            >
+                This field needs more than four characters
+            </small>
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['name'].hasError('required')
+                "
+            >
+                This field needs to be filled
+            </small>
+        </div>
+
+        <input 
+            type="text" 
+            placeholder="subject"
+            formControlName="subject"
+            [class.valid]="formContact.controls['subject'].valid"
+            [class.invalid]="
+                formContact.controls['subject'].invalid &&
+                (formContact.controls['subject'].touched || formContact.controls['subject'].dirty)
+            "
+        >
+        <div
+            *ngIf="
+                formContact.controls['subject'].invalid &&
+                (formContact.controls['subject'].touched || formContact.controls['subject'].dirty)
+            "
+        >
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['subject'].hasError('minlength')
+                "
+            >
+                This field needs more than ten characters
+            </small>
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['subject'].hasError('required')
+                "
+            >
+                This field needs to be filled
+            </small>
+        </div>
+
+        <input 
+            type="tel" 
+            placeholder="(00) 0 0000-0000"
+            mask="(00) 0 0000-0000"
+            formControlName="phone"
+            [class.valid]="formContact.controls['phone'].valid"
+            [class.invalid]="
+                formContact.controls['phone'].invalid &&
+                (formContact.controls['phone'].touched || formContact.controls['phone'].dirty)
+            "
+        >
+        <div
+            *ngIf="
+                formContact.controls['phone'].invalid &&
+                (formContact.controls['phone'].touched || formContact.controls['phone'].dirty)
+            "
+        >
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['phone'].hasError('minlength')
+                "
+            >
+                This field needs more than 11 characters
+            </small>
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['phone'].hasError('required')
+                "
+            >
+                This field needs to be filled
+            </small>
+        </div>
+
+        <input 
+            type="email" 
+            placeholder="email@email.com"
+            formControlName="email"
+            [class.valid]="formContact.controls['email'].valid"
+            [class.invalid]="
+                formContact.controls['email'].invalid &&
+                (formContact.controls['email'].touched || formContact.controls['email'].dirty)
+            "
+        >
+        <div
+            *ngIf="
+                formContact.controls['email'].invalid &&
+                (formContact.controls['email'].touched || formContact.controls['email'].dirty)
+            "
+        >
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['email'].hasError('email')
+                "
+            >
+                This field needs to be a valid email
+            </small>
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['email'].hasError('required')
+                "
+            >
+                This field needs to be filled
+            </small>
+        </div>
+
+        <textarea 
+            maxlength="500" 
+            placeholder="message"
+            rows="5"
+            formControlName="message"
+            [class.valid]="formContact.controls['message'].valid"
+            [class.invalid]="
+                formContact.controls['message'].invalid &&
+                (formContact.controls['message'].touched || formContact.controls['message'].dirty)
+            "
+        ></textarea>
+        <div
+            *ngIf="
+                formContact.controls['message'].invalid &&
+                (formContact.controls['message'].touched || formContact.controls['message'].dirty)
+            "
+        >
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['message'].hasError('minlength')
+                "
+            >
+                This field needs more than 20 characters
+            </small>
+            <small             
+                class="error-message"
+                *ngIf="
+                    formContact.controls['message'].hasError('required')
+                "
+            >
+                This field needs to be filled
+            </small>
+        </div>
+        <button
+            [disabled]="formContact.invalid"
+            type="submit"
+        >
+            send
+        </button>
+    </form>
+    <address>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22850.179149262574!2d-38.47968470536783!3d-3.707723876127783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c739307bb1e3c7%3A0x3823a7f7d0d414bb!2sPraia%20Mansa!5e0!3m2!1spt-BR!2sbr!4v1663964283757!5m2!1spt-BR!2sbr"
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </address>
+</section>
